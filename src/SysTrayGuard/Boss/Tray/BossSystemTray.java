@@ -1,4 +1,4 @@
-package sysTrayDaemon;
+package SysTrayGuard.Boss.Tray;
 
 import java.awt.AWTException;
 import java.awt.Image;
@@ -14,7 +14,14 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-public class MyTray implements ActionListener, MouseListener {
+import SysTrayGuard.Boss.Panel.Login.DesktopCapture;
+
+/**
+ * Description:系统守护托盘程序加载
+ * Author:俞晓荣(779339162@qq.com)
+ * Date:2018/3/27
+ */
+public class BossSystemTray implements ActionListener, MouseListener {
 
   private Image icon;// 图标
 
@@ -32,7 +39,7 @@ public class MyTray implements ActionListener, MouseListener {
 
   private MenuItem exit = new MenuItem("exit");
 
-  public MyTray(DesktopCapture frame) {
+  public BossSystemTray(DesktopCapture frame) {
     this.frame = frame;
     // icon = Toolkit.getDefaultToolkit().getImage("./images/xiaomai.png");
     icon = new ImageIcon(this.getClass().getClassLoader().getResource("image/xiaomai.png")).getImage();

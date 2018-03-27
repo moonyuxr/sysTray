@@ -1,4 +1,4 @@
-package sysTrayDaemon;
+package SysTrayGuard.Boss.Panel.Login;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -17,6 +17,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
+import SysTrayGuard.Boss.Tray.BossSystemTray;
 import test.VersionUtil;
 
 public class DesktopCapture extends JFrame implements ActionListener {
@@ -28,9 +29,9 @@ public class DesktopCapture extends JFrame implements ActionListener {
 
   // JButton confirm;
   // BufferedImage desktopImg;
-  MyTray tray;
+  BossSystemTray tray;
 
-  boolean iconed = false;
+  public boolean iconed = false;
 
   private JButton btLog;
 
@@ -134,8 +135,7 @@ public class DesktopCapture extends JFrame implements ActionListener {
   }
 
   void init() {
-
-    tray = new MyTray(DesktopCapture.this);
+    tray = new BossSystemTray(DesktopCapture.this);
   }
 
   // 截图
