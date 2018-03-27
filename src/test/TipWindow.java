@@ -38,13 +38,13 @@ public class TipWindow extends JDialog {
       }
     }
     //        此处代码用来实现让消息提示框5秒后自动消失,如果不需要自动关闭,则可注释掉
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
-    close(); // 窗口关闭
+//    try {
+//      Thread.sleep(3000);
+//    } catch (InterruptedException e) {
+//      // TODO Auto-generated catch block
+//      e.printStackTrace();
+//    }
+//    close(); // 窗口关闭
   }
 
   private void initComponents() {

@@ -1,4 +1,4 @@
-package SysTrayGuard.Boss.Tray;
+package SysTrayGuard.boss.tray;
 
 import java.awt.AWTException;
 import java.awt.Image;
@@ -10,11 +10,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-import SysTrayGuard.Boss.Panel.Login.DesktopCapture;
+import SysTrayGuard.boss.panel.login.DesktopCapture;
 
 /**
  * Description:托盘加载
@@ -23,15 +24,30 @@ import SysTrayGuard.Boss.Panel.Login.DesktopCapture;
  */
 public class BossSystemTray implements ActionListener, MouseListener {
 
-  private Image icon;// 托盘图标
+  /**
+   * 托盘图标
+   */
+  private Image icon;
 
+  /**
+   * 待创建托盘
+   */
   private TrayIcon trayIcon;
 
-  private SystemTray systemTray;// 系统托盘
+  /**
+   * 系统托盘
+   */
+  private SystemTray systemTray;
 
-  private DesktopCapture frame; // 托盘所属主窗体
+  /**
+   * 托盘所属主窗体
+   */
+  private DesktopCapture frame;
 
-  private PopupMenu pop = new PopupMenu(); // 弹出菜单
+  /**
+   * 弹出菜单
+   */
+  private PopupMenu pop = new PopupMenu();
 
   /**
    * 设置
@@ -61,7 +77,10 @@ public class BossSystemTray implements ActionListener, MouseListener {
    */
   public BossSystemTray(DesktopCapture frame) {
     this.frame = frame;
-    icon = new ImageIcon(this.getClass().getClassLoader().getResource("image/xiaomai.png")).getImage();
+    //获取托盘图标的url
+    URL url = this.getClass().getClassLoader().getResource("image/xiaomai.png");
+    if (url != null)
+      icon = new ImageIcon(url).getImage();
     //如果系统支持托盘
     if (SystemTray.isSupported()) {
       //获取系统托盘
@@ -77,8 +96,8 @@ public class BossSystemTray implements ActionListener, MouseListener {
       try {
         //将Boss托盘添加到系统托盘
         systemTray.add(trayIcon);
-      } catch (AWTException e1) {
-        e1.printStackTrace();
+      } catch (AWTException e) {
+        e.printStackTrace();
         trayIcon.addMouseListener(this);
       }
     }
@@ -97,13 +116,14 @@ public class BossSystemTray implements ActionListener, MouseListener {
    */
   @Override
   public void actionPerformed(ActionEvent e) {
+    //重新登录打开登录界面
     if (e.getSource() == relogin) {
       frame.iconed = false;
       frame.setVisible(true);
       frame.setExtendedState(JFrame.NORMAL);
-    } else if (e.getSource() == set) {
+    } else if (e.getSource() == set) {//设置打开设置界面
       frame.capture();
-    } else {
+    } else {//其他情况退出程序
       System.exit(0);
     }
 

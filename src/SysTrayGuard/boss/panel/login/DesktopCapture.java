@@ -1,4 +1,4 @@
-package SysTrayGuard.Boss.Panel.Login;
+package SysTrayGuard.boss.panel.login;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -17,7 +17,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
-import SysTrayGuard.Boss.Tray.BossSystemTray;
+import SysTrayGuard.boss.tray.BossSystemTray;
 import test.VersionUtil;
 
 public class DesktopCapture extends JFrame implements ActionListener {
@@ -46,7 +46,7 @@ public class DesktopCapture extends JFrame implements ActionListener {
   private JLabel laberpassword;
 
   public DesktopCapture() {
-    super("守护程序");
+    super("预算管理");
 
     //mesg = new JButton("弹出消息框");
     // mesg.setBounds(new Rectangle(10, 10, 100, 30));//参数分别是坐标x，y，宽，高
@@ -140,25 +140,6 @@ public class DesktopCapture extends JFrame implements ActionListener {
 
   // 截图
   public void capture() {
-
-  }
-
-  public static void main(String[] args) {
-    // TODO Auto-generated method stub
-    try {
-      //根据客户的平台版本动态更改应用的外观
-      UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-      DesktopCapture desk = new DesktopCapture();
-      //      InfoUtil i = new InfoUtil();
-      //      i.show("消息", "111");
-      // new VersionUtil();
-      VersionUtil.main(args);
-
-    } catch (Exception e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
 
   }
 
