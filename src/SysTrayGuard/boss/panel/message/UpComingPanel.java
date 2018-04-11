@@ -1,12 +1,6 @@
-package test;
+package SysTrayGuard.boss.panel.message;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.Point;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -15,17 +9,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
 import SysTrayGuard.boss.panel.PopUpBox.TipWindow;
 
-public class VersionUtil {
+public class UpComingPanel {
   private Map<String, String> feaMap = null;
 
   private Point oldP; //上一次坐标,拖动窗口时用
@@ -66,7 +54,7 @@ public class VersionUtil {
     feaMap.put("feature", "这里是提示框主内容\n1.代码改进与完善,去掉了许多无用的代码\n2.自制菜单栏\n3.增加拖动功能\n4.自制背景图片\n");
   }
 
-  public VersionUtil() {
+  public UpComingPanel() {
     init();
     handle();
     tw.setAlwaysOnTop(true);
@@ -230,7 +218,4 @@ public class VersionUtil {
     });
   }
 
-  public static void main(String args[]) {
-    new VersionUtil();
-  }
 }

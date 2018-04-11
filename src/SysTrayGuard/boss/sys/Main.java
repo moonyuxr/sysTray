@@ -3,6 +3,7 @@ package SysTrayGuard.boss.sys;
 import javax.swing.*;
 
 import SysTrayGuard.boss.panel.login.DesktopCapture;
+import SysTrayGuard.boss.panel.message.UpComingPanel;
 import test.VersionUtil;
 
 /**
@@ -22,7 +23,8 @@ public class Main {
       //      InfoUtil i = new InfoUtil();
       //      i.show("消息", "111");
       // new VersionUtil();
-      VersionUtil.main(args);
+//      VersionUtil.main(args);
+      new UpComingPanel();
 
     } catch (Exception e) {
       // TODO Auto-generated catch block
